@@ -39,3 +39,10 @@ input[type="submit"] {
     padding: 0 21px;
     height: 51px;
 }
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: #95A757;
+}
