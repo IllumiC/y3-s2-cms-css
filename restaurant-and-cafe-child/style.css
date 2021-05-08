@@ -20,3 +20,22 @@ a:focus {
     color: #e2B553;
     text-decoration: underline;
 }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f9f4ef;
+    background: #afc466;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    padding: 0 21px;
+    height: 51px;
+}
