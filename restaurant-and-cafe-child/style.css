@@ -124,7 +124,7 @@ input[type="submit"]:hover {
 }
 
 .mec-load-more-button:hover {
-    background: #191919;
-    color: #fff;
-    border-color: #191919
+    background: #e2B553 !important;
+    border: #e2B553 !important;
+    color: #f9f4ef !important;
 }
