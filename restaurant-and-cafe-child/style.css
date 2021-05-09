@@ -46,3 +46,20 @@ input[type="reset"]:hover,
 input[type="submit"]:hover {
     background: #e2B553;
 }
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce a.added_to_cart {
+    background: #afc466;
+    color: #f9f4ef;
+    /*font-family: "Lato",sans-serif;*/
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 12px 22px;
+    text-transform: uppercase;
+    border-radius: 0;
+    height: auto;
+}
