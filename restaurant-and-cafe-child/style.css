@@ -96,3 +96,9 @@ input[type="submit"]:hover {
     line-height: 37px;
     height: 38px
 }
+
+.mec-event-footer .mec-booking-button:hover {
+    background: #191919;
+    color: #fff;
+    border-color: #191919
+}
