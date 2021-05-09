@@ -63,3 +63,17 @@ input[type="submit"]:hover {
     border-radius: 0;
     height: auto;
 }
+
+.woocommerce a.button:hover,
+.woocommerce a.button:focus,
+.woocommerce #respond input#submit:hover,
+.woocommerce #respond input#submit:focus,
+.woocommerce button.button:hover,
+.woocommerce button.button:focus,
+.woocommerce input.button:hover,
+.woocommerce input.button:focus,
+.woocommerce a.added_to_cart:hover,
+.woocommerce a.added_to_cart:focus {
+    background: #95a757;
+    color: #fff;
+}
