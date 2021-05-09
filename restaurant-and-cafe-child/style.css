@@ -52,7 +52,7 @@ input[type="submit"]:hover {
 .woocommerce button.button,
 .woocommerce input.button,
 .woocommerce a.added_to_cart {
-    background: #afc466;
+    background: #f9c85b !important;
     color: #f9f4ef;
     /*font-family: "Lato",sans-serif;*/
     font-size: 15px;
