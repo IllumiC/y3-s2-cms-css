@@ -122,3 +122,9 @@ input[type="submit"]:hover {
     height: 42px;
     display: inline-block
 }
+
+.mec-load-more-button:hover {
+    background: #191919;
+    color: #fff;
+    border-color: #191919
+}
