@@ -102,3 +102,23 @@ input[type="submit"]:hover {
     border: #e2B553 !important;
     color: #f9f4ef;
 }
+
+.mec-load-more-button {
+    box-shadow: none;
+    transition: all .21s ease;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #fff;
+    color: #767676;
+    border: 2px solid #e8e8e8;
+    border-radius: 50px;
+    padding: 0 28px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    line-height: 40px;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    height: 42px;
+    display: inline-block
+}
