@@ -132,3 +132,7 @@ input[type="submit"]:hover {
 .comment-form input[type="submit"] {
     background: #f9c85b;
 }
+
+.comment-form input[type="submit"]:hover {
+    background: #95A757;
+}
