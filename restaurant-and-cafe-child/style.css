@@ -152,3 +152,7 @@ input[type="submit"]:hover {
     padding: 0 21px !important;
     height: 51px !important;
 }
+
+.wpforms-form button[type=submit]:hover {
+    background: #e2B553 !important;
+}
