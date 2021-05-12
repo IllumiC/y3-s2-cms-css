@@ -136,3 +136,19 @@ input[type="submit"]:hover {
 .comment-form input[type="submit"]:hover {
     background: #e2B553;
 }
+
+.wpforms-form button[type=submit] {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #f9f4ef !important;
+    background: #f9c85b !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    height: 51px !important;
+    line-height: 51px !important;
+    text-align: center !important;
+    padding: 0 21px !important;
+    height: 51px !important;
+}
