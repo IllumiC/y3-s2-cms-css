@@ -23,7 +23,6 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 // END ENQUEUE PARENT ACTION
 
-
 function show_games(){
 	return '
 		<input id="game-min" type="number" class="form-control" placeholder="Lowest Price">
@@ -125,4 +124,156 @@ function show_games(){
 			requestGames();
 		</script>';
 }
+
+function ls_date(){
+	$date = date('D M d Y');
+	return '<p><small>Game information valid through '.$date.'</small></p>';
+}
+
+function ls_product_by_category($atts){
+	$args = shortcode_atts(
+		array(
+			'category' => 'baked-goods'
+		),
+		$atts
+	);
+	$output = '
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">SKU</th>
+				<th scope="col">Name</th>
+			  	<th scope="col">Price</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
+	$products = wc_get_products( $args );
+	foreach($products as $product){
+		$output .= '
+			<tr>
+				<th scope="row">'.$product->get_sku().'</th>
+				<td><a href="'.get_permalink($product->get_id()).'">'.$product->get_name().'</a></td>
+				<td>&euro;'.number_format((float)$product->get_price(), 2, '.', '').'</td>
+			</tr>
+		';
+	};
+	$output .= '
+		</tbody>
+	</table>
+	';
+	return $output;
+}
+
+function ls_count_by_category($atts){
+	$args = shortcode_atts(
+		array(
+			'category' => 'baked-goods'
+		),
+		$atts
+	);
+	$count = 0;
+	$products = wc_get_products( $args );
+	foreach($products as $product){
+		$count += 1;
+	};
+	$plural = '';
+	if ($count != 1){
+		$plural = 's';
+	};
+	return '<p><small>'.$count.' product'.$plural.' in the '.$args["category"].' category.</small></p>';
+}
+
+function ls_delivered_by($atts){
+	$args = shortcode_atts(
+		array(
+			'last-order' => '2pm',
+			'delivered-by' => 'tomorrow afternoon'
+		),
+		$atts
+	);
+	return '<p><small>Order by '.$args["last-order"].' to have your order delivered by '.$args["delivered-by"].'.</small></p>';
+}
+
+function ls_product_by_rating($atts){
+	$args = shortcode_atts(
+		array(
+			'minimum' => 0,
+			'maximum' => 5
+		),
+		$atts
+	);
+	$output = '
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">SKU</th>
+				<th scope="col">Name</th>
+			  	<th scope="col">Price</th>
+				<th scope="col">Category</th>
+				<th scope="col">Rating</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
+	$products = wc_get_products(array("limit"=>-1));
+	foreach($products as $product){
+		if($product->get_average_rating()>=$args['minimum'] && $product->get_average_rating()<=$args['maximum']){
+			$output .= '
+				<tr>
+					<th scope="row">'.$product->get_sku().'</th>
+					<td><a href="'.get_permalink($product->get_id()).'">'.$product->get_name().'</a></td>
+					<td>&euro;'.number_format((float)$product->get_price(), 2, '.', '').'</td>
+					<td>'.$product->get_categories().'</td>
+					<td>'.$product->get_average_rating().'</td>
+				</tr>
+			';
+		};
+	};
+	$output .= '
+		</tbody>
+	</table>
+	';
+	return $output;
+}
+
+function ls_product_featured(){
+	$output = '
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">SKU</th>
+				<th scope="col">Name</th>
+			  	<th scope="col">Price</th>
+			</tr>
+		</thead>
+		<tbody>
+	';
+	$products = wc_get_products(array("limit"=>-1));
+	foreach($products as $product){
+		if($product->is_featured()){
+			$output .= '
+				<tr>
+					<th scope="row">'.$product->get_sku().'</th>
+					<td><a href="'.get_permalink($product->get_id()).'">'.$product->get_name().'</a></td>
+					<td>&euro;'.number_format((float)$product->get_price(), 2, '.', '').'</td>
+				</tr>
+			';
+		};
+	};
+	$output .= '
+		</tbody>
+	</table>
+	';
+	return $output;
+}
+
+
 add_shortcode("steam-games","show_games");
+add_shortcode("valid-date","ls_date");
+add_shortcode("product-info","ls_product_by_category");
+add_shortcode("product-count","ls_count_by_category");
+add_shortcode("delivered-by","ls_delivered_by");
+add_shortcode("product-rating","ls_product_by_rating");
+add_shortcode("product-featured","ls_product_featured");
+?>
